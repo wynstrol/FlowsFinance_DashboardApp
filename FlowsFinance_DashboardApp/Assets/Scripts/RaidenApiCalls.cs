@@ -58,6 +58,36 @@ public class RaidenApiCalls : MonoBehaviour
       startGetRoutineIfReady(uri);
     }
 
+    public void getPayments(string tokenAddr,string address){
+      string uri = "http://"+ipAddress+":5001/api/v1/payments/"+tokenAddr+"/"+address;
+      startGetRoutineIfReady(uri);
+    }
+
+    public void getConnections(){
+      string uri = "http://"+ipAddress+":5001/api/v1/connections";
+      startGetRoutineIfReady(uri);
+    }
+
+    public void getPendingTransfers(){
+      string uri = "http://"+ipAddress+":5001/api/v1/pending_transfers";
+      startGetRoutineIfReady(uri);
+    }
+
+    public void getPendingTransfersForToken(string tokenAddr){
+      string uri = "http://"+ipAddress+":5001/api/v1/pending_transfers/"+tokenAddr;
+      startGetRoutineIfReady(uri);
+    }
+
+    public void getPendingTransfersForAddress(string tokenAddr, string address){
+      string uri = "http://"+ipAddress+":5001/api/v1/pending_transfers/"+tokenAddr+"/"+address;
+      startGetRoutineIfReady(uri);
+    }
+
+    public void getNotifications(){
+      string uri = "http://"+ipAddress+":5001/api/v1/notifications";
+      startGetRoutineIfReady(uri);
+    }
+    
     private void startGetRoutineIfReady(string uri){
       if(isReady){
         StartCoroutine(RestfulGetRequest(uri));
